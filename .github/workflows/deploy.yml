@@ -35,7 +35,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            pnpm run build
             cd /var/www/astro-app-cicd/
             git pull origin main
+            pnpm run build
             git status
+            sudo systemctl restart apache2
