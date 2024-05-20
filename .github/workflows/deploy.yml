@@ -31,7 +31,7 @@ jobs:
           port: 22
           script: |
             cd /var/www/astro-app-cicd/
-            git pull origin dev
+            git pull origin main
             git status
 
       - name: Install dependencies
