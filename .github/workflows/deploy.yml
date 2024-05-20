@@ -30,7 +30,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /var/www/astro-app/
+            cd /var/www/astro-app-cicd/
             git pull origin dev
             git status
 
