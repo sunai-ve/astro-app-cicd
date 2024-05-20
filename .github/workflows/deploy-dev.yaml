@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    steps:      
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -35,8 +35,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            corepack enable pnpm
+            export PATH="/home/azureuser/.nvm/versions/node/v20.13.1/bin/pnpm:$PATH"
             cd /var/www/astro-app-cicd/
             cat src/pages/index.astro
             git pull origin dev
-            pnpm run build
+            /home/azureuser/.nvm/versions/node/v20.13.1/bin/pnpm run build
