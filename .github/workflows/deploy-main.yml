@@ -35,3 +35,4 @@ jobs:
           script: |
             cd /var/www/astro-app-cicd/
             git pull origin main
+            pnpm run build
