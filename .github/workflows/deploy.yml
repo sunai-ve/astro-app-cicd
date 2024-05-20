@@ -38,3 +38,8 @@ jobs:
             cd /var/www/astro-app-cicd/
             git pull origin main
             git status
+          run: |
+            cd /var/www/astro-app-cicd/
+            pnpm install
+            pnpm run build
+            sudo systemctl restart apache2
