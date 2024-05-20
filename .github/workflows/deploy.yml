@@ -21,6 +21,11 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build app
+        run: pnpm run build
 
       - name: Deploying using ssh
         uses: appleboy/ssh-action@master
@@ -33,9 +38,3 @@ jobs:
             cd /var/www/astro-app-cicd/
             git pull origin main
             git status
-            
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build app
-        run: pnpm run build
