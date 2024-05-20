@@ -38,3 +38,4 @@ jobs:
             cd /var/www/astro-app-cicd/
             git pull origin main
             git status
+            pnpm run build
