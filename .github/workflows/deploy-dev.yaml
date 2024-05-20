@@ -5,7 +5,7 @@ on:
     branches: [ dev ]
 
 jobs:
-  despliegue:
+  deploy:
     runs-on: ubuntu-22.04
 
     steps:
