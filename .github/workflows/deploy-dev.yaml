@@ -35,7 +35,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            export PATH="/home/azureuser/.nvm/versions/node/v20.13.1/bin/pnpm:$PATH"
             cd /var/www/astro-app-cicd/
             git pull origin dev
-            /home/azureuser/.nvm/versions/node/v20.13.1/bin/pnpm run build
