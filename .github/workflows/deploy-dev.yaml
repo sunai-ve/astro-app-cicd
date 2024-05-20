@@ -35,6 +35,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            corepack enable pnpm
             cd /var/www/astro-app-cicd/
             cat src/pages/index.astro
             git pull origin dev
