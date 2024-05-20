@@ -5,9 +5,8 @@ on:
     branches: [ main ]
 
 jobs:
-  despliegue:
+  deploy:
     runs-on: ubuntu-22.04
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,16 +18,15 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
+
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build app
+      - name: Build astro app
         run: pnpm run build
 
       - name: Deploying using ssh
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -37,6 +35,3 @@ jobs:
           script: |
             cd /var/www/astro-app-cicd/
             git pull origin main
-            pnpm run build
-            git status
-            sudo systemctl restart apache2
