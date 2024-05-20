@@ -33,6 +33,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            pnpm --help
             cd /var/www/astro-app-cicd/
             git pull origin main
             pnpm run build
